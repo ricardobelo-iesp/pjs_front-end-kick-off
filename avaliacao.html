@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="Projeto: Acompanhamento Semestral - Front-end Kick-off - Prof. Humberto Junior">
+  <meta name="author" content="mba-em-full-stack-web-development+iesp@ricardobelo.com.br">
+
+  <title>Acompanhamento Semestral</title>
+
+  <!-- Custom fonts for this template-->
+  <link href="vendor/fontawesome-free/fontawesome/all.min.css" rel="stylesheet" type="text/css">
+
+  <!-- Page level plugin CSS-->
+  <link href="vendor/bootstrap/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Custom styles for this template-->
+  <link href="css/sb-admin.min.css" rel="stylesheet">
+
+  <script>
+        //  
+        let n = 1;
+        function addNovo(){
+          addInputsAvalicao(n++);
+        }
+        function addInputsAvalicao(n = 0){
+            let inputs_avaliacao = `<div class="form-row">
+              <div class="col-sm-1 my-1 text-center">
+                  Competência ${n}
+              </div>
+              <div class="col-sm-3 my-1">
+                <input type="text" name="profissional[]" class="form-control" placeholder="Profissional">
+              </div>
+              <div class="col-sm-3 my-1">
+                <input type="text" name="gestor[]" class="form-control" placeholder="Gestor">
+              </div>
+            </div>`;
+            //  https://developer.mozilla.org/en-US/docs/Web/API/Element/querySelector
+            //  https://developer.mozilla.org/en-US/docs/Web/API/Element/insertAdjacentHTML
+            return document.querySelector('#avaliacao').insertAdjacentHTML("afterbegin", inputs_avaliacao);       
+        };
+
+        window.onload = function() {
+          addInputsAvalicao();
+        };
+
+  </script>
+    
+</head>
+
+<body id="page-top">
+
+  <nav class="navbar navbar-expand navbar-dark bg-dark static-top">
+
+    <a class="navbar-brand mr-1" href="index.html">Acompanhamento Semestral</a>
+
+    <!-- Navbar Search -->
+    <form class="d-none d-md-inline-block form-inline ml-auto mr-0 mr-md-3 my-2 my-md-0">
+      <div class="input-group">
+      </div>
+    </form>
+    
+  </nav>
+
+  <div id="wrapper">
+
+  <!-- Sidebar -->
+  <ul class="sidebar navbar-nav">
+      <li class="nav-item">
+        <a class="nav-link" href="avaliacao.html">
+          <i class="fas fa-fw fa-folder"></i>
+          <span>Avaliação</span>
+        </a>
+      </li>
+
+      <li class="nav-item">
+        <a class="nav-link" href="observacoes.html">
+          <i class="fas fa-fw fa-folder"></i>
+          <span>Observações</span>
+        </a>
+      </li>
+
+      <li class="nav-item">
+          <a class="nav-link" href="dados_pessoais.html">
+            <i class="fas fa-fw fa-folder"></i>
+            <span>Dados Pessoais</span>
+          </a>
+        </li>
+    </ul>
+
+    <div id="content-wrapper">
+
+      <div class="container-fluid">
+
+
+        <!-- Page Content -->
+        <h1>Avaliação</h1>
+
+        <hr>
+        
+        <h3>Profissional <span class="badge badge-darkr"> <button class="btn btn-info" href="javascript:void(0);" onclick="addNovo();" >+ Adicionar Novo</button></span> </h3>
+      
+        <br />
+        
+        <form id="avaliacao">
+
+          <hr />
+          
+          <div class="form-row">
+              <div class="col-sm-1 my-1 text-center">
+                  Média
+              </div>
+              <div class="col-sm-3 my-1">
+                <input type="text" name="profissional_media" class="form-control" placeholder="Média do Profissional">
+              </div>
+              <div class="col-sm-3 my-1">
+                <input type="text" name="gestor_media" class="form-control" placeholder="Média do Gestor">
+              </div>
+          </div>
+
+          <hr />
+
+
+          <div class="form-row">
+              <div class="col-sm-1 my-1 text-center">
+                  Evolução do Desempenho
+              </div>
+              <div class="col-sm-3 my-1">
+                <input type="text" name="evolucao_profissional" class="form-control" placeholder="Evolução do Profissional">
+              </div>
+              <div class="col-sm-3 my-1">
+                <input type="text" name="evolucao_gestor" class="form-control" placeholder="Evolução do Gestor">
+              </div>
+          </div>
+
+          <hr />
+
+    
+          <h4> Avaliação da Empresa </h4>        
+
+          <br /> 
+
+          <div class="form-row">
+              <div class="col-sm-2 my-1 text-center">
+                  Avaliação 1
+              </div>
+              <div class="col-sm-4 my-1">
+                <input type="text" name="avalicao_empresa_profissional[]" class="form-control" placeholder="Avaliação 01">
+              </div>
+          </div>        
+
+          <div class="form-row">
+              <div class="col-sm-2 my-1 text-center">
+                  Avaliação 2
+              </div>
+              <div class="col-sm-4 my-1">
+                <input type="text" name="avalicao_empresa_profissional[]" class="form-control" placeholder="Avaliação 02">
+              </div>
+          </div>        
+          
+          <div class="form-row">
+              <div class="col-sm-2 my-1 text-center">
+                  Avaliação 3
+              </div>
+              <div class="col-sm-4 my-1">
+                <input type="text" name="avalicao_empresa_profissional[]" class="form-control" placeholder="Avaliação 03">
+              </div>
+          </div>        
+          
+          <div class="form-row">
+              <div class="col-sm-2 my-1 text-center">
+                  Avaliação 4
+              </div>
+              <div class="col-sm-4 my-1">
+                <input type="text" name="avalicao_empresa_profissional[]" class="form-control" placeholder="Avaliação 04">
+              </div>
+          </div>        
+          
+          <div class="form-row">
+              <div class="col-sm-2 my-1 text-center">
+                  Avaliação 5
+              </div>
+              <div class="col-sm-4 my-1">
+                <input type="text" name="avalicao_empresa_profissional[]" class="form-control" placeholder="Avaliação 05">
+              </div>
+          </div>        
+          
+          <div class="form-row">
+              <div class="col-sm-2 my-1 text-center">
+                  Avaliação 6
+              </div>
+              <div class="col-sm-4 my-1">
+                <input type="text" name="avalicao_empresa_profissional[]" class="form-control" placeholder="Avaliação 06">
+              </div>
+          </div>        
+  
+          
+          <hr /> 
+          <br /><button type="submit" class="btn btn-primary">Salvar</button>
+          <br /><br />
+        </form>
+
+      </div>
+      <!-- /.container-fluid -->
+
+      <!-- Sticky Footer -->
+      <footer class="sticky-footer">
+        <div class="container my-auto">
+          <div class="copyright text-center my-auto">
+            <span>Made S2 <a href="http://ricardobelo.com.br/g/jampa">Jampa</a> By <a href="http://ricardobelo.com.br/">Ricardo Belo</a> Powered <a href="https://getbootstrap.com/">Twitter Bootstrap</a></span>
+          </div>
+        </div>
+      </footer>
+
+    </div>
+    <!-- /.content-wrapper -->
+
+  </div>
+  <!-- /#wrapper -->
+
+  <!-- Scroll to Top Button-->
+  <a class="scroll-to-top rounded" href="#page-top">
+    <i class="fas fa-angle-up"></i>
+  </a>
+
+  <!-- Logout Modal-->
+  <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+          <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">×</span>
+          </button>
+        </div>
+        <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
+        <div class="modal-footer">
+          <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+          <a class="btn btn-primary" href="login.html">Logout</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+</body>
+
+</html>
