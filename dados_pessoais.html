@@ -58,14 +58,17 @@
             return false;   
           return true;   
         }
-
-        window.onload = function() {
+        
+        function formatar(mascara, documento){
+          var i = documento.value.length;
+          var saida = mascara.substring(0,1);
+          var texto = mascara.substring(i)
           
-          //validarCPF()
-          //addInputsAvalicao();
-
-        };
-
+          if (texto.substring(0,1) != saida){
+                    documento.value += texto.substring(0,1);
+          }
+          
+        }
   </script>
     
 </head>
@@ -177,7 +180,7 @@
                 <label for="nome_do_profissional">CPF</label>
               </div>
               <div class="col-sm-6 my-1">
-                  <input type="text" id="cpf" name="cpf" class="form-control" placeholder="cpf" onchange="alert(validarCPF(this.value) ? 'CPF Valido' : 'CPF inválido' );" />
+                  <input type="text" maxlength="14" id="cpf" name="cpf" class="form-control" placeholder="cpf" onchange="alert(validarCPF(this.value) ? 'CPF Valido' : 'CPF inválido' );" OnKeyPress="formatar('###.###.###-##', this)" />
               </div>
           </div>
 
